@@ -61,7 +61,7 @@ public class LoginAction extends ActionSupport
 		String errMsg = null;
         String ReturnStr="failer";
         BASE64Encoder enc=new BASE64Encoder();
-		String usertype = request.getParameterValues("usertype")[0];
+		//String usertype = request.getParameterValues("usertype")[0];
 //        type = "系统管理员";
 //        if(usertype.equals("5")){
 //        	request.setAttribute("role", "项目部人员");
@@ -72,6 +72,23 @@ public class LoginAction extends ActionSupport
 //        request.setAttribute("role", "系统管理员");
         
         String testuser=request.getParameter("UserName");//登陆用户名
+        String usertype = null;
+        //去掉类型选择，后台根据username判断类型
+        if(loginDAO.IsAdmin(testuser)) {
+        	usertype = "1";
+        }else if(loginDAO.IsPerson(testuser)) {
+        	String type = loginDAO.QueryPerson(testuser).getType();
+        	if(type.equals("院领导"))
+        		usertype = "2";
+        	else if(type.equals("质安部管理员"))
+        		usertype = "3";
+        	else
+        		usertype = "4";
+        } else {
+        	usertype = "5";
+        }
+        
+        
         String testPs=request.getParameter("UserPwd");
     	Boolean judgePwd = false;
 		Boolean judgeRand = false;
