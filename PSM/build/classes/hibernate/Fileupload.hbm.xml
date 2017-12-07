@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-7-18 10:21:16 by Hibernate Tools 5.1.0.Beta1 -->
+<!-- Generated 2017-12-5 15:44:51 by Hibernate Tools 5.1.0.Beta1 -->
 <hibernate-mapping>
-    <class name="hibernate.Fileupload" table="fileupload" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Fileupload" table="fileupload" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
         </id>
         <property name="file" type="string">
-            <column name="File" length="200" />
+            <column name="FileName" length="200" />
         </property>
         <property name="year" type="string">
             <column name="Year" length="4" />

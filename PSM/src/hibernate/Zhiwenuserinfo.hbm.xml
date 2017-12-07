@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-6-19 17:45:20 by Hibernate Tools 5.1.0.Beta1 -->
 <hibernate-mapping>
-    <class name="hibernate.Zhiwenuserinfo" table="zhiwenuserinfo" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Zhiwenuserinfo" table="zhiwenuserinfo" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

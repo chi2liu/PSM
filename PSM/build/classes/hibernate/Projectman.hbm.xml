@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-2-4 16:27:46 by Hibernate Tools 5.2.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Projectman" table="projectman" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Projectman" table="projectman" optimistic-lock="version">
         <id name="userName" type="string">
             <column name="UserName" length="100" />
             <generator class="assigned" />

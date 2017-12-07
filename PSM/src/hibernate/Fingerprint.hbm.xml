@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-5-12 10:13:48 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
-    <class name="hibernate.Fingerprint" table="fingerprint" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Fingerprint" table="fingerprint" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

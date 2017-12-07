@@ -575,7 +575,7 @@ public class EduTrainDAO extends HibernateDaoSupport{
 	}
 	
 	public float getAvgScore(int testID) {
-		String sql = "SELECT AVG(Score) FROM(SELECT NAME, (Score1+Score2+Score3+Score4) AS Score FROM testpaper WHERE TestID="+testID+") t";
+		String sql = "SELECT CONVERT(DECIMAL(10,2),avg(Score)) FROM(SELECT NAME, (Score1+Score2+Score3+Score4) AS Score FROM testpaper WHERE TestID="+testID+") t";
 		Session session = getSession();
 		BigDecimal temp = (BigDecimal)session.createSQLQuery(sql).uniqueResult();
 		if (temp == null) return -1;
@@ -587,7 +587,7 @@ public class EduTrainDAO extends HibernateDaoSupport{
 	public int getActualNum(int testID) {
 		String sql = "SELECT COUNT(*) FROM testpaper WHERE testID=" + testID;
 		Session session = getSession();
-		BigInteger temp = (BigInteger)session.createSQLQuery(sql).uniqueResult();
+		Integer temp = (Integer)session.createSQLQuery(sql).uniqueResult();
 		int res = temp.intValue();
 		return res;
 	}

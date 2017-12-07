@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/quartz-all-1.6.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jacob.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_151"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqljdbc42.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

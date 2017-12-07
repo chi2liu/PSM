@@ -63,6 +63,19 @@ public class LoginDAO extends HibernateDaoSupport
 			return list.get(0);
 	}
 	
+	public boolean IsAdmin(String UserName)
+	{
+		String hql = "from Admin adm where adm.userName = '" + UserName +"'";
+		//List<Admin> list =  this.getHibernateTemplate().find(hql);
+		Query query = getSession().createQuery(hql);
+		List<Admin> list = query.list();
+		/*if(list.size() == 0)
+			return null;
+		else*/
+		getSession().close();
+		return (list.size()!=0);
+	}
+	
 	public void InsertLog(Log log){
 		this.getHibernateTemplate().save(log);
 	}
@@ -83,6 +96,15 @@ public class LoginDAO extends HibernateDaoSupport
 			return null;
 		else
 			return list.get(0);
+	}
+	
+	public boolean IsPerson(String id){
+		String hql = "from Person pbd where pbd.identityNo ='"+ id +"' or pbd.phoneNo='"+ id +"'";
+		List<Person> list = this.getHibernateTemplate().find(hql);
+		if(list.size() == 0)
+			return false;
+		else
+			return true;
 	}
 	
 	public void insertPersondb(Persondb user)

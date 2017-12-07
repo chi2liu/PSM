@@ -4,7 +4,7 @@
 <!-- Generated 2017-4-18 10:04:40 by Hibernate Tools 5.2.0.CR1 -->
 <hibernate-mapping>
 	<class name="hibernate.TransportSafety" table="transportsafety"
-		catalog="psm" optimistic-lock="version">
+		optimistic-lock="version">
 		<id name="id" type="java.lang.Integer">
 			<column name="ID" />
 			<generator class="identity" />

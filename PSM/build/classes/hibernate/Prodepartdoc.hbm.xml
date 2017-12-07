@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-31 16:13:52 by Hibernate Tools 5.1.0.Final -->
 <hibernate-mapping>
-    <class name="hibernate.Prodepartdoc" table="prodepartdoc" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Prodepartdoc" table="prodepartdoc" optimistic-lock="version">
         <id name="id" type="int">
             <column name="ID" />
             <generator class="assigned" />
