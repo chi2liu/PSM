@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-12-8 16:47:11 by Hibernate Tools 5.1.0.Beta1 -->
 <hibernate-mapping>
-    <class name="hibernate.Admin" table="admin" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Admin" table="admin" optimistic-lock="version">
         <id name="userName" type="string">
             <column name="UserName" length="100" />
             <generator class="assigned" />

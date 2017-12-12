@@ -2,7 +2,7 @@
 <!-- Generated 2017-10-13 17:10:25 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="psm" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.Yearplan" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="yearplan">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.Yearplan" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="yearplan">
         <id name="id" type="java.lang.Integer">
             <column name="ID"/>
             <generator class="identity"/>

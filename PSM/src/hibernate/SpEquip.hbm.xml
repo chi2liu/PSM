@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-6-1 10:46:54 by Hibernate Tools 5.1.0.Beta1 -->
 <hibernate-mapping>
-    <class name="hibernate.SpEquip" table="sp_equip" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.SpEquip" table="sp_equip" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />

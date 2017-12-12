@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-12-20 16:18:18 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Missionstate" table="missionstate" catalog="psm">
+    <class name="hibernate.Missionstate" table="missionstate">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

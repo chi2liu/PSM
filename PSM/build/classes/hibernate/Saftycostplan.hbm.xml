@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-5-23 10:42:48 by Hibernate Tools 5.2.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Saftycostplan" table="saftycostplan" catalog="psm" optimistic-lock="version">
+    <class name="hibernate.Saftycostplan" table="saftycostplan" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-11-9 22:01:59 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Monitor" table="monitor" catalog="psm">
+    <class name="hibernate.Monitor" table="monitor">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
