@@ -5,14 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import hibernate.Anweihui;
-import hibernate.Flownode;
-import hibernate.Goaldecom;
-import hibernate.Project;
-import hibernate.Projectperson;
-import hibernate.Saveculture;
-import hibernate.Saveproduct;
-import hibernate.Securityplan;
+import hibernate.ReadilyShoot;
 import hibernate.Weixianyuan;
 import hibernate.Yinhuanpaicha;
 
@@ -124,4 +117,35 @@ public class HiddenTroubleSolutionDAO extends HibernateDaoSupport {
 		return list;
 	}
 
+	public List<ReadilyShoot> getReadilyShootList(String projectName, String findstr, int limit, int start) {
+		String hql = "from ReadilyShoot where id is not null";
+		if (!projectName.equals("全部项目"))
+			hql += " and project='" + projectName + "'";
+		if(findstr != null || findstr.length() > 0) {
+    		String[] strKey = findstr.split(",");
+        	for(int i=0; i<strKey.length; i++)
+        		if(strKey[i].length()>0)
+        			hql += " and ( position like '%" + strKey[i] + "%' or comment like '%"+strKey[i]+"%')";
+    	}
+		Query query = getSession().createQuery(hql);
+    	query.setFirstResult(start);
+		query.setMaxResults(limit);
+    	List<ReadilyShoot> list = query.list();
+    	getSession().close();
+    	return list;
+	}
+	
+	public ReadilyShoot getReadilyShoot(int id) {
+		String hql = "from ReadilyShoot where id=" + id;
+		Query query = getSession().createQuery(hql);
+      	List<ReadilyShoot> list = query.list();
+      	getSession().close();
+      	if (list.size() == 0) return null;
+      	return list.get(0);
+	}	
+
+	public void deleteReadilyShoot(ReadilyShoot p)
+	{
+		this.getHibernateTemplate().delete(p);
+	}
 }

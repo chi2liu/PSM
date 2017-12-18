@@ -5,28 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.zip.ZipOutputStream;
 
-import org.apache.tools.zip.ZipEntry;
-
-import PSM.DAO.GoalDutyDAO;
 import PSM.DAO.HiddenTroubleSolutionDAO;
 import PSM.Tool.ExcelToPdf;
 import PSM.Tool.ReadExcel;
 import PSM.Tool.WordToPdf;
-import hibernate.Anweihui;
-import hibernate.Fenbao;
-import hibernate.Flownode;
-import hibernate.Goaldecom;
-import hibernate.Project;
-import hibernate.Projectperson;
-import hibernate.Saveculture;
-import hibernate.Saveproduct;
-import hibernate.Securityplan;
+import hibernate.ReadilyShoot;
 import hibernate.Weixianyuan;
 import hibernate.Yinhuanpaicha;
 
@@ -823,6 +810,38 @@ public class HiddenTroubleSolutionService {
 			break;
 		}
 		return total;
+	}
+	
+	public String getReadilyShootList(String projectName, String findStr, int limit, int start) {
+		List<ReadilyShoot> list = hiddenTroubleSolutionDAO.getReadilyShootList(projectName, findStr, limit, start);
+		int total = list.size();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		String jsonStr = "{\"total\":" + total + ",\"rows\":[";
+		for (int i = 0; i < list.size(); ++i) {
+			if (i > 0) jsonStr += ",";
+			ReadilyShoot p = list.get(i);
+			String prefix = sdf.format(p.getTakeTime()) + "," + p.getUploadedBy() + "于" + p.getPosition() + "拍摄上传。";
+			String commnet = "隐患问题为" + p.getComment();
+			jsonStr += "{\"ID\":" + p.getId() 
+					+ ",\"url\":\"" + p.getUrl().replaceAll("\\\\", "/")
+					+ "\",\"prefix\":\"" + prefix
+					+ "\",\"comment\":\"" + commnet 
+					+ "\",\"project\":\"" + p.getProject() + "\"}";
+			}
+		jsonStr += "]}";
+		System.out.println(jsonStr);
+		return jsonStr;
+	}
+	
+	public String deleteReadilyShoot(String ID, String rootPath) {
+		ReadilyShoot pro = new ReadilyShoot();
+		String json = "{\"success\":\"true\"}";
+		String[] temp = ID.split(",");
+		for(int i = 0; i < temp.length; i++) {
+			ReadilyShoot p = hiddenTroubleSolutionDAO.getReadilyShoot(Integer.parseInt(temp[i]));
+			hiddenTroubleSolutionDAO.deleteReadilyShoot(p);
+		} 
+		return json;
 	}
 
 }

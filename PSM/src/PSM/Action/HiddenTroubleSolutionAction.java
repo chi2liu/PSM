@@ -381,6 +381,54 @@ public class HiddenTroubleSolutionAction extends ActionSupport {
 		}
 	}
 	
+	public void getReadilyShootListDef() throws Exception {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		try {
+//			String jsonStr = "{\"total\":1,\"rows\":[{\"url\":\"http://c.hiphotos.baidu.com/image/h%3D220/sign=e20667c7a6c379316268812bdbc6b784/09fa513d269759eea79bc50abbfb43166c22df2c.jpg\",\"comment\":\"Hello\"}]}";;
+			String projectName = request.getParameter("ProjectName");
+			String userRole = request.getParameter("userRole");
+			if (userRole.equals("全部项目")) projectName = "全部项目";
+			String jsonStr = hiddenTroubleSolutionService.getReadilyShootList(projectName, "", limit, start);
+			outputJSON(response, jsonStr);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			outputJSON(response, "{\"result\":\"failed\"}");
+		}
+	}
+	
+	public void getReadilyShootListSearch() throws Exception {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		try {
+//			String jsonStr = "{\"total\":1,\"rows\":[{\"url\":\"http://c.hiphotos.baidu.com/image/h%3D220/sign=e20667c7a6c379316268812bdbc6b784/09fa513d269759eea79bc50abbfb43166c22df2c.jpg\",\"comment\":\"Hello\"}]}";;
+			String projectName = request.getParameter("ProjectName");
+			String userRole = request.getParameter("userRole");
+			if (userRole.equals("全部项目")) projectName = "全部项目";
+			String findstr = request.getParameter("findStr");
+			String jsonStr = hiddenTroubleSolutionService.getReadilyShootList(projectName, findstr, limit, start);
+			outputJSON(response, jsonStr);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			outputJSON(response, "{\"result\":\"failed\"}");
+		}
+	}
+	
+	public void deleteReadilyShoot() {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String ID = request.getParameter("id");
+		String rootPath = request.getRealPath("/")+"upload\\";
+		try {			
+			String jsonStr = hiddenTroubleSolutionService.deleteReadilyShoot(ID, rootPath);
+			outputJSON(response, jsonStr);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void outputJSON(HttpServletResponse response, String jsonStr) throws Exception {
 		System.out.println(jsonStr);
 		response.setCharacterEncoding("UTF-8");
