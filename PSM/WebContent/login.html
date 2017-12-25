@@ -112,7 +112,7 @@ div.validateimg
 }
 #loginInputBox {
 	border: 0px currentColor; border-image: none; width:62%; text-align: left; color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; margin-right: 0%; margin-top:9%; vertical-align: middle; float: right; border-collapse: collapse;
-	font-family:微软雅黑;position:relative;
+	font-family:微软雅黑;position:relative;top: 35px;
 }
 #loginInputBox td {
 	border: 0px solid currentColor; border-image: none;
@@ -162,211 +162,6 @@ div.validateimg
            else
            		document.getElementById("UserLogin").submit();
       }
-        
-        
-       /* var fieldstore = new Ext.data.JsonStore({
-            proxy: {
-                type: 'ajax',
-                url: 'ExpertInfoAction!ChooseDepartment',
-            },
-            reader: {
-                type: 'json',
-            },
-            fields: ["Department"],
-        });
-             
-        var forms = Ext.create('Ext.form.Panel', {
- 				minWidth: 200,
- 				minHeight: 100,
- 				bodyPadding: 5,
- 				buttonAlign: 'center',
- 			    layout: 'anchor',
- 		        defaults: { anchor: '100%', height: 30, labelWidth: 80 },
- 		        autoScroll: true,
- 		        frame: false,
- 		        defaultType:'textfield',
- 		        items:[{
-       		    	fieldLabel: "学号",		//编号框用于绑定数据ID，隐藏不显示
-       		        name: "Sid",
-       		        regex:/^20\d{11}$/,
-       		        regexText:"只能输入数字!", 
-       		        labelAlign: 'right',       		    
-       	        },{
-       		       	fieldLabel: "密码",
-       	        	name: "PassWord",
-       	        	inputType: 'password',
-       	        	labelAlign: 'right',
-       	        	id:"pass1",
-       		        afterLabelTextTpl: required,
-       		        allowBlank: false
-       		    },{
-       		       	fieldLabel: "确认密码",
-       	        	name: "ConfirPassWord",
-       	        	inputType: 'password',
-       	        	vtype:"password",//自定义的验证类型
-       	        	vtypeText:"两次密码不一致！", 
-       	        	confirmTo:"pass1",//要比较的另外一个的组件的id 
-       	        	labelAlign: 'right',
-       		        afterLabelTextTpl: required,
-       		        allowBlank: false
-       		    },{
-       	        	fieldLabel:"姓名",
-       	        	name:"Name",
-       	        	labelAlign: 'right',
-       	        	afterLabelTextTpl: required,
-       	        	allowBlank: false
-       		    },{
-       	        	fieldLabel:"单位",
-       	        	name:"Department",
-       	        	labelAlign: 'right',
-       	        	xtype:'combo',
-       	        	afterLabelTextTpl: required,     		          		      		      
-       	            mode:'local',
-       	            editable:false,
-       	            store: fieldstore,
-       	            displayField:'Department',       		          	      
-       	        	allowBlank: false
-       		    },{
-       	        	fieldLabel:"电话",
-       	        	name:"Phone",
-       	        	labelAlign: 'right',   	    
-       		    },{
-       	        	fieldLabel:"身份证号码",
-       	        	name:"IDcard",
-       	            vtype: "judgeIDcard",//自定义的验证类型    
-       	            vtypeText: "身份证号码不合法",    
-       	        	labelAlign: 'right',
-       	        	afterLabelTextTpl: required,
-       	        	allowBlank: false
-       		    },{
-       		    	xtype:'combo',
-       	        	afterLabelTextTpl: required,
-       		    	fieldLabel: "性别",
-       		       	labelAlign: 'right',
-       		        allowBlank: false,
-       		        store:["男","女"],
-       	            mode:'local',
-       	            editable:false,       	       	          
-       		        name:"Sex"
-       		    },{
-       		       	fieldLabel: "邮箱",
-       	        	name: "Email",    
-       	        	labelAlign: 'right',      		            		      
-       		    },{
-       		       	fieldLabel: "类别",
-       	        	name: "Title",   
-       	        	xtype:'combo',
-       	        	labelAlign: 'right',
-       	        	store:["本科生","硕士生","博士生","其它"],
-       	        	value:'本科生',
-       		        afterLabelTextTpl: required,
-       		        allowBlank: false
-       		    },{
-       		       	fieldLabel: "学历",
-       	        	name: "Education",
-       	        	xtype:'combo',
-       	        	labelAlign: 'right',
-       	        	value:'本科',
-       	        	store:["本科","研究生","其它"],
-       		        afterLabelTextTpl: required,
-       		        allowBlank: false
-       		    }],
- 		        buttons: [{
- 		        	text: '确定',
- 		        	handler: function() {
- 		        		if(forms.form.isValid()){
- 		        			forms.form.submit({
- 		        				clientValidation: true,
- 		        				url:"UserLoginAction!regist",
- 		  	                	success: function(form,action){
- 		  	                		
- 		  	                		Ext.Msg.alert('提示',action.result.msg);
- 		  	                	},
- 		  	                	failure: function(form,action){
- 		  	                		Ext.Msg.alert('提示',action.result.msg);
- 		  	                	}
- 		                	})
- 		                	this.up('window').close();
- 		                }
- 		        	else{
- 		               Ext.Msg.alert('警告','请正确填写！');
- 		                }
- 		        	}
- 		        },{
- 		        	text: '取消',
- 		        	Align:'left',
- 		        	handler: function(){
- 		        		this.up('window').close();
- 		        	}
- 		        },{
- 		        	text: '重置',
- 		        	handler: function(){
- 		        		forms.form.reset();
- 		        	}
- 		        }],
- 		        renderTo: Ext.getBody()
- 		   })
- 	    Ext.apply(Ext.form.VTypes,{                     //为form添加验证
-        	    judgeIDcard : function(val){             //val指的是文本框的值，field指的是文本框组件  
-        	       	return checkCardId(val);  
-        	        },
-        	    password : function(val,field){//val指这里的文本框值，field指这个文本框组件，大家要明白这个意思 
-        	        if(field.confirmTo){//confirmTo是我们自定义的配置参数，一般用来保存另外的组件的id值 
-        	        var pwd=forms.getComponent(field.confirmTo);//取得confirmTo的那个id的值      	      
-        	        return (val==pwd.getValue()); 
-        	       } 
-        	    }
-        	
-        	});          
-        function register()
-    	{        	       	       	              	   	   
-        	Ext.create('Ext.window.Window', 
-    	        	{
-    	                title: '注册知识产权申请用户',
-    	                height: 500,
-    	                width: 400,
-    	                modal: true,  //设定为模态窗口
-    	                plain: true,
-    	                layout: 'fit',
-    	                titleAlign: 'center',
-    	                closable: true,		//可关闭的
-    	                closeAction: 'close',	//关闭动作，有hide、close、destory
-    	                draggable: true,
-    	                resizable: true,
-    	                maximizable: true,
-    	                constrain: true,
-    	                items:forms
-    	                }).show();
-    	}*/
-        
-        
- /*   function login1(){
-          var usertype = document.getElementById("usertype").value;
-          if(usertype == "-1")
-           {
-           		alert("用户类型不能为空!");
-           		return false;
-           }
-           if(usertype!="4")
-           {
-           		if(usertype!=5)
-           		{
-           		alert("只允许注册教师用户和企业用户!");
-           		return false;
-           		}
-           		else
-           		{
-           		document.getElementById("type").value="guest";
-           		document.getElementById("UserLogin").submit();
-           		}
-           		
-           }
-           else
-           {
-           document.getElementById("type").value="guest";
-           document.getElementById("UserLogin").submit();
-           }
-      }  */
 </script>
 
 <body class="greyBg" onresize="mydiv_resize()">
@@ -444,7 +239,12 @@ div.validateimg
 </TR>
   <TR>
     <TD style="text-align: center;" colspan="4"><BR><FONT color="red" style="font-size: 12px;"><LABEL 
-      id="alertp"></LABEL></FONT></TD></TR></TBODY></TABLE>
+      id="alertp"></LABEL></FONT>
+    </TD>
+  </TR>
+      </TBODY>
+      
+      </TABLE>
 </DIV>
 </DIV>
 </form>  
