@@ -895,6 +895,7 @@ public class DayManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 			String jsonStr = dayManageService.getAttLogList(id);
 			//System.out.println(type);
 			System.out.println(jsonStr);

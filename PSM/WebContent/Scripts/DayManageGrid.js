@@ -1249,7 +1249,7 @@ Ext.define('DayManageGrid', {
   	var personList;
   	
   	Ext.Ajax.request({
-  		async: true, 
+  		async: false, 
   		method : 'POST',
   		url: encodeURI('MissionAction!getPersonNode'),
   		success: function(response){
@@ -1998,7 +1998,6 @@ Ext.define('DayManageGrid', {
         			}
         			
 				else	if (title == '安全周报' ) {
-					insertFileToList();
 					actionURL = 'DayManageAction!editPeriodreport?userName=' + user.name + "&userRole=" + user.role + "&type=" + title; 
 					items = items_Periodreport;
 					
@@ -2014,9 +2013,7 @@ Ext.define('DayManageGrid', {
 				showWin({ winId: 'editProject', title: '修改文件', items: [forms]});
 				}
     		else	if (title == '安全生产管理信息月报表' || title == '事故隐患排查治理台账'|| title == '企业职工伤亡事故月报表') {
-    			insertFileToList();
-    			
-    			actionURL = 'DayManageAction!editPeriodreport?userName=' + user.name + "&userRole=" + user.role + "&type=" + title; 
+				actionURL = 'DayManageAction!editPeriodreport?userName=' + user.name + "&userRole=" + user.role + "&type=" + title; 
 				items = items_Periodreport932933;
 				
 				createForm({
@@ -2026,9 +2023,9 @@ Ext.define('DayManageGrid', {
 				url: actionURL,
 				items: items
 			});
-				uploadPanel.upload_url = "UploadAction!execute";
-	//        	bbar.moveFirst();	//状态栏回到第一页
-				showWin({ winId: 'editProject', title: '修改文件', items: [forms]});
+			uploadPanel.upload_url = "UploadAction!execute";
+//        	bbar.moveFirst();	//状态栏回到第一页
+			showWin({ winId: 'editProject', title: '修改文件', items: [forms]});
 			}
 					
 					

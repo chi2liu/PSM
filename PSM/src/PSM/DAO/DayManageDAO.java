@@ -169,22 +169,6 @@ public class DayManageDAO extends HibernateDaoSupport {
 		getSession().close();
 		return list;
 	}
-	
-	/**
-	 * 刘迟
-	 * 获取指纹考勤表单
-	 * 根据监控点的名称进行查询
-	 * @param id
-	 * @return
-	 */
-	
-	public Fingerprint getFingerprintByName(String name) {
-		String hql = "from Fingerprint where name like '%" + name +"%'";
-		List<Fingerprint> fingerprint = getHibernateTemplate().find(hql);
-		if (fingerprint.size() == 0)
-			return null;
-		return fingerprint.get(0);
-	}
 
 	// ***********Daibanrecord********
 		public List<Daibanrecord> checkDaibanrecordID(int id) {
