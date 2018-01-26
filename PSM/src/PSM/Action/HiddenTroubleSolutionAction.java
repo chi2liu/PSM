@@ -381,6 +381,15 @@ public class HiddenTroubleSolutionAction extends ActionSupport {
 		}
 	}
 	
+	private void outputJSON(HttpServletResponse response, String jsonStr) throws Exception {
+		System.out.println(jsonStr);
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.write(jsonStr);
+		out.flush();
+		out.close();
+	}
+	
 	public void getReadilyShootListDef() throws Exception {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -427,14 +436,5 @@ public class HiddenTroubleSolutionAction extends ActionSupport {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	private void outputJSON(HttpServletResponse response, String jsonStr) throws Exception {
-		System.out.println(jsonStr);
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		out.write(jsonStr);
-		out.flush();
-		out.close();
 	}
 }
