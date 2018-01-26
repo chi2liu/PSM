@@ -928,14 +928,19 @@ public class BasicInfoAction extends ActionSupport {
 		pro.setManager(request.getParameter("Manager"));
 		// pro.setStartDate(request.getParameter("StartDate"));
 		pro.setSchedule(request.getParameter("Schedule"));
-
-		pro.setContent(request.getParameter("Content"));
+		
+		pro.setContent(replaceSpecialSymbol(request.getParameter("Content")));
 		pro.setCost(request.getParameter("Cost"));
 		pro.setProgress(request.getParameter("Progress"));
 
 		return pro;
 	}
 
+	private String replaceSpecialSymbol(String s) {
+		String res = s.replace("\n", "<br>").replace("\r", "<br>").replace("\"", "\'");
+		return res;
+	}
+	
 	public void addProjectmanagement() {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
