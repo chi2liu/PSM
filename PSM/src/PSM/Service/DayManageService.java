@@ -2057,11 +2057,11 @@ public class DayManageService {
 	
 	public String getAttLogList(int id) throws UnsupportedEncodingException
 	{
-		
-		System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
 		Monitor monitor = dayManageDAO.getMonitor(id);
-		System.out.println(monitor.getIpaddress() + " ----****---- ");
-		List<Zhiwenkaoqin> list = dayManageDAO.getZhiWenList(monitor.getIpaddress(), Integer.parseInt(monitor.getPort()));
+		
+		Fingerprint fingerprint = dayManageDAO.getFingerprintByName(monitor.getMonitorName());
+		
+		List<Zhiwenkaoqin> list = dayManageDAO.getZhiWenList(fingerprint.getIp(), Integer.parseInt(fingerprint.getPortno()));
 		
 		int total = list.size();
 		System.out.println(total);
