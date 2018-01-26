@@ -1,5 +1,5 @@
-<!DOCTYPE html>  
-<html>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>  
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
@@ -16,7 +16,7 @@ body{height:100%;margin:0px;padding:0px}
 	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=kL7g9s9uiSvelw7ZPeiRe3yGWnnmqrnU&s=1">
 </script>
 </head>  
- 
+
 <body>  
 <div id="container"></div> 
 <script type="text/javascript"> 
@@ -48,7 +48,7 @@ body{height:100%;margin:0px;padding:0px}
 	//添加监控点
 	var pointList;
 	Ext.Ajax.request({
-		async: false, 
+		async: false,
         method : 'POST',
         url: encodeURI('MapAction!setMonitorInMap'),
         success: function(response){
@@ -96,7 +96,7 @@ body{height:100%;margin:0px;padding:0px}
             maximizable: true,
             constrain: true,
 			closeAction : 'hide',
-			html : "<iframe src = 'http://220.249.115.58:81'scrolling='yes' frameboder=0 width=100% height=100% ></iframe>"
+			html : "<iframe src = 'http://220.249.115.58:83'scrolling='yes' frameboder=0 width=100% height=100% ></iframe>"
 		}).show();
 	}
 	
