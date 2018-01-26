@@ -2701,7 +2701,7 @@ Ext.define('BasicInfoGrid', {
             pageSize: psize,  //页容量20条数据
             proxy: {
                 type: 'ajax',
-                url: encodeURI('BasicInfoAction!getKoufentongjiListDef?userName=' + user.name + "&userRole=" + user.role + "&date=" + nowdate()+ "&startDate=" + '20170101'+ "&endDate=" + '20181231'),
+                url: encodeURI('BasicInfoAction!getKoufentongjiListDef?userName=' + user.name + "&userRole=" + user.role + "&date=" + nowdate()),
                 reader: {   //这里的reader为数据存储组织的地方，下面的配置是为json格式的数据，例如：[{"total":50,"rows":[{"a":"3","b":"4"}]}]
                     type: 'json', //返回数据类型为json格式
                     root: 'rows',  //数据

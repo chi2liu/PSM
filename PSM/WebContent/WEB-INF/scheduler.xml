@@ -5,15 +5,10 @@
 	<!-- 配置数据源 -->
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
-<!-- 		<property name="url" value="jdbc:mysql://125.220.159.160:3306/psm?useUnicode=true&amp;characterEncoding=utf8"></property>        -->
-<!-- <property name="url" value="jdbc:sqlserver://10.165.3.74:1433;DatabaseName=psm"></property>   
-		<property name="username" value="sa"></property>
-		<property name="password" value="psm@123456"></property> -->
-		<property name="url" value="jdbc:sqlserver://125.220.159.160:1433;DatabaseName=psm"></property>   
-		<property name="username" value="sa"></property>
-		<property name="password" value="sa"></property>
-	 <!--    <property name="initialSize" value="10"></property>	-->	
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://125.220.159.160:3306/psm?useUnicode=true&amp;characterEncoding=utf8"></property>   
+		<property name="username" value="root"></property>
+		<property name="password" value="rat605"></property>
 		<property name="maxActive" value="500"></property>
 		<property name="maxIdle" value="100"></property>
 		<property name="maxWait" value="10000" />
@@ -21,13 +16,6 @@
         <property name="removeAbandonedTimeout" value="60" />
         <property name="logAbandoned" value="true" />
         <property name="validationQuery" value="select 1" />
-	<!--  	<property name="minIdle" value="10"></property>  
-		<property name="testWhileIdle" value="true" ></property> 
-		<property name="timeBetweenEvictionRunsMillis" value="3000000"></property>  
-		<property name="minEvictableIdleTimeMillis" value="3200000"></property>
-		<property name="removeAbandoned" value="true"></property>
-		<property name="removeAbandonedTimeout" value="7200"></property>		
-		<property name="defaultAutoCommit" value="true"></property>  -->
 	</bean>
 	
 	
@@ -40,7 +28,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<!-- 数据库连接方言 -->
-				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<!-- 在控制台输出SQL语句 -->
 				<prop key="hibernate.show_sql">false</prop>
 				<!-- 格式化控制台输出的SQL语句 -->

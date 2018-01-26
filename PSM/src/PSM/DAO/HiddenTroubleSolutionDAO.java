@@ -116,7 +116,7 @@ public class HiddenTroubleSolutionDAO extends HibernateDaoSupport {
 		getSession().close();
 		return list;
 	}
-
+	
 	public List<ReadilyShoot> getReadilyShootList(String projectName, String findstr, int limit, int start) {
 		String hql = "from ReadilyShoot where id is not null";
 		if (!projectName.equals("全部项目"))
@@ -148,4 +148,5 @@ public class HiddenTroubleSolutionDAO extends HibernateDaoSupport {
 	{
 		this.getHibernateTemplate().delete(p);
 	}
+
 }

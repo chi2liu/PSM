@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-8-25 17:22:19 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Projectperson" table="projectperson">
+    <class name="hibernate.Projectperson" table="projectperson" catalog="psm">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

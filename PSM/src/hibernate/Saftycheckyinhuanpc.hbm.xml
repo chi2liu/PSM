@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-31 14:34:12 by Hibernate Tools 5.2.0.CR1 -->
 <hibernate-mapping>
-    <class name="hibernate.Saftycheckyinhuanpc" table="saftycheckyinhuanpc" optimistic-lock="version">
+    <class name="hibernate.Saftycheckyinhuanpc" table="saftycheckyinhuanpc" catalog="psm" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />

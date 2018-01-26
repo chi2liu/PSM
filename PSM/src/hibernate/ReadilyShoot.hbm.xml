@@ -2,7 +2,7 @@
 <!-- Generated 2017-9-30 14:54:06 by Hibernate Tools 5.1.4.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.ReadilyShoot" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="readily_shoot">
+    <class catalog="psm" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.ReadilyShoot" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="readily_shoot">
         <id name="id" type="java.lang.Integer">
             <column name="id"/>
             <generator class="identity"/>

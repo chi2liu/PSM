@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-2 14:37:29 by Hibernate Tools 5.1.0.Final -->
 <hibernate-mapping>
-    <class name="hibernate.Testpaper" table="testpaper" optimistic-lock="version">
+    <class name="hibernate.Testpaper" table="testpaper" catalog="psm" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
